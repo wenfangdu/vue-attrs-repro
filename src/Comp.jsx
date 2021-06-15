@@ -2,8 +2,13 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   inheritAttrs: false,
+  props: {
+    baz: String,
+  },
   setup(props, { attrs }) {
-    //          👇 logs { foo: 'foo' }, not { foo: 'foo', bar: undefined }
+    //          👇 logs { baz: undefined }
+    console.log(props)
+    //          👇 logs { foo: 'foo' }, NOT { foo: 'foo', bar: undefined }
     console.log(attrs)
 
     return () => <div>Comp</div>
